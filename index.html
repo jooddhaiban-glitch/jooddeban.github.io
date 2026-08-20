@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jood Deban | Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f8fc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      background: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      z-index: 100;
+    }
+
+    nav h2 {
+      color: #6c63ff;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin-left: 25px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #6c63ff;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #f5f3ff, #eef4ff);
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: #6c63ff;
+    }
+
+    .hero h2 {
+      font-size: 25px;
+      font-weight: normal;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #666;
+      font-size: 17px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 25px;
+      margin: 7px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: #6c63ff;
+      color: white;
+    }
+
+    .secondary {
+      border: 2px solid #6c63ff;
+      color: #6c63ff;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* General sections */
+    section {
+      padding: 75px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 40px;
+    }
+
+    .section-title span {
+      color: #6c63ff;
+    }
+
+    /* About */
+    .about {
+      text-align: center;
+      max-width: 850px;
+      margin: auto;
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill {
+      background: white;
+      padding: 12px 22px;
+      border-radius: 25px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      font-weight: bold;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: white;
+      padding: 28px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .project-card h3 {
+      color: #6c63ff;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .project-card a {
+      color: #6c63ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      background: #1e1e2f;
+      color: white;
+    }
+
+    .contact p {
+      color: #ccc;
+      margin-bottom: 25px;
+    }
+
+    .contact a {
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      background: #151521;
+      color: #aaa;
+      padding: 18px;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      nav div {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <h2>JD.</h2>
+
+    <div>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- Hero -->
+  <div class="hero">
+
+    <div>
+
+      <p>Hello, I'm</p>
+
+      <h1>Jood <span>Deban</span></h1>
+
+      <h2>Computer Science Student</h2>
+
+      <p>
+        Passionate about software development, technology,
+        and creating practical digital solutions.
+      </p>
+
+      <div class="buttons">
+
+        <a class="btn primary" href="#projects">
+          View My Projects
+        </a>
+
+        <a class="btn secondary"
+           href="https://github.com/jooddhaiban-glitch"
+           target="_blank">
+          GitHub
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- About -->
+  <section id="about">
+
+    <h2 class="section-title">
+      About <span>Me</span>
+    </h2>
+
+    <div class="about">
+
+      <p>
+        I am a Computer Science student at the University of Jeddah
+        with an interest in software development and technology.
+        I enjoy developing projects, learning new technologies,
+        and applying my technical skills to real-world challenges.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- Skills -->
+  <section id="skills">
+
+    <h2 class="section-title">
+      My <span>Skills</span>
+    </h2>
+
+    <div class="skills">
+
+      <div class="skill">Python</div>
+      <div class="skill">Java</div>
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">GitHub</div>
+      <div class="skill">SQL</div>
+      <div class="skill">Linux</div>
+      <div class="skill">UML</div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Projects -->
+  <section id="projects">
+
+    <h2 class="section-title">
+      My <span>Projects</span>
+    </h2>
+
+    <div class="projects">
+
+
+      <!-- Project 1 -->
+      <div class="project-card">
+
+        <h3>NCM Reports Website</h3>
+
+        <p>
+          A web-based interface developed during my training
+          at the National Center for Meteorology to organize
+          and display reports in a clear and user-friendly format.
+        </p>
+
+        <a href="https://github.com/jooddhaiban-glitch/mcc-reports-jood"
+           target="_blank">
+          View Project →
+        </a>
+
+      </div>
+
+
+      <!-- Project 2 -->
+      <div class="project-card">
+
+        <h3>FamilyPay</h3>
+
+        <p>
+          A university software project designed to provide
+          a simple digital solution for family payment management.
+        </p>
+
+        <a href="#" target="_blank">
+          Project Details →
+        </a>
+
+      </div>
+
+
+      <!-- Project 3 -->
+      <div class="project-card">
+
+        <h3>Smart Lost</h3>
+
+        <p>
+          A university project focused on creating a smarter
+          solution for reporting and finding lost items.
+        </p>
+
+        <a href="#" target="_blank">
+          Project Details →
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+
+    <h2 class="section-title">
+      Contact <span>Me</span>
+    </h2>
+
+    <p>
+      Interested in connecting or viewing more of my work?
+    </p>
+
+    <div class="buttons">
+
+      <a class="btn primary"
+         href="https://github.com/jooddhaiban-glitch"
+         target="_blank">
+         GitHub
+      </a>
+
+      <!-- نضيف رابط LinkedIn هنا لاحقاً -->
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    © 2026 Jood Deban — Portfolio
+  </footer>
+
+</body>
+</html>
