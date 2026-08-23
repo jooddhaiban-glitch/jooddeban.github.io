@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Jood Deban | Portfolio</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg: #e9e8f2;
+      --bg-soft: #f4f3f8;
+      --lavender: #c9c5e8;
+      --lavender-dark: #7773a8;
+      --pink: #eadcdc;
+      --white: #ffffff;
+      --text: #34323d;
+      --muted: #706d79;
+      --border: rgba(255, 255, 255, 0.55);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -15,207 +31,468 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f8fc;
-      color: #222;
-      line-height: 1.6;
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.85), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(234,220,220,.9), transparent 30%),
+        linear-gradient(135deg, #eeeeF7 0%, #e4e2f0 45%, #f0e8eb 100%);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    /* Navigation */
+    a {
+      color: inherit;
+    }
+
+    /* NAVIGATION */
     nav {
-      background: white;
-      padding: 18px 8%;
+      position: fixed;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(92%, 1180px);
+      padding: 15px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      z-index: 100;
+      background: rgba(255,255,255,.45);
+      border: 1px solid rgba(255,255,255,.6);
+      backdrop-filter: blur(18px);
+      border-radius: 22px;
+      z-index: 1000;
+      box-shadow: 0 12px 35px rgba(73, 68, 105, .08);
     }
 
-    nav h2 {
-      color: #6c63ff;
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
 
-    nav a {
+    .logo span {
+      color: var(--lavender-dark);
+    }
+
+    nav .links {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav .links a {
       text-decoration: none;
-      color: #333;
-      margin-left: 25px;
-      font-weight: bold;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      transition: .3s;
     }
 
-    nav a:hover {
-      color: #6c63ff;
+    nav .links a:hover {
+      color: var(--lavender-dark);
     }
 
-    /* Hero */
+    /* HERO */
     .hero {
-      min-height: 85vh;
+      min-height: 100vh;
+      padding: 150px 7% 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .orb.one {
+      width: 430px;
+      height: 430px;
+      background:
+        radial-gradient(circle at 35% 30%,
+        rgba(255,255,255,.85),
+        rgba(211,207,235,.70) 42%,
+        rgba(234,220,220,.65) 72%,
+        transparent 100%);
+      top: 17%;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow:
+        inset 0 0 70px rgba(255,255,255,.5),
+        0 30px 80px rgba(118,113,168,.13);
+    }
+
+    .orb.two {
+      width: 230px;
+      height: 230px;
+      background: rgba(255,255,255,.24);
+      bottom: -70px;
+      left: -70px;
+      border: 1px solid rgba(255,255,255,.45);
+    }
+
+    .orb.three {
+      width: 280px;
+      height: 280px;
+      background: rgba(234,220,220,.28);
+      top: 12%;
+      right: -90px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1180px;
+      text-align: center;
+    }
+
+    .mini-label {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 8px 16px;
+      border-radius: 30px;
+      background: rgba(255,255,255,.42);
+      border: 1px solid rgba(255,255,255,.6);
+      backdrop-filter: blur(12px);
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .portfolio-word {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(70px, 12vw, 175px);
+      font-weight: 700;
+      letter-spacing: -8px;
+      line-height: .88;
+      color: rgba(255,255,255,.86);
+      text-shadow: 0 18px 40px rgba(101, 94, 140, .07);
+    }
+
+    .hero-name {
+      margin-top: 20px;
+      font-size: clamp(24px, 4vw, 50px);
+      font-weight: 600;
+      letter-spacing: -1.5px;
+    }
+
+    .hero-name span {
+      color: var(--lavender-dark);
+    }
+
+    .hero-description {
+      max-width: 680px;
+      margin: 20px auto 0;
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      margin-top: 32px;
       display: flex;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #f5f3ff, #eef4ff);
-    }
-
-    .hero h1 {
-      font-size: 55px;
-      margin-bottom: 10px;
-    }
-
-    .hero h1 span {
-      color: #6c63ff;
-    }
-
-    .hero h2 {
-      font-size: 25px;
-      font-weight: normal;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      color: #666;
-      font-size: 17px;
-    }
-
-    .buttons {
-      margin-top: 30px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      display: inline-block;
       text-decoration: none;
-      padding: 12px 25px;
-      margin: 7px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
+      padding: 13px 23px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .3s ease;
     }
 
-    .primary {
-      background: #6c63ff;
+    .btn-primary {
+      background: var(--text);
       color: white;
+      box-shadow: 0 10px 25px rgba(55,52,68,.17);
     }
 
-    .secondary {
-      border: 2px solid #6c63ff;
-      color: #6c63ff;
+    .btn-secondary {
+      background: rgba(255,255,255,.44);
+      border: 1px solid rgba(255,255,255,.75);
+      backdrop-filter: blur(14px);
     }
 
     .btn:hover {
       transform: translateY(-3px);
     }
 
-    /* General sections */
+    /* GENERAL */
     section {
-      padding: 75px 10%;
+      width: min(88%, 1180px);
+      margin: auto;
+      padding: 105px 0;
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 45px;
+    }
+
+    .section-number {
+      font-size: 13px;
+      color: var(--lavender-dark);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
     }
 
     .section-title {
-      text-align: center;
-      font-size: 34px;
-      margin-bottom: 40px;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      letter-spacing: -4px;
+      font-weight: 600;
+      line-height: 1;
     }
 
-    .section-title span {
-      color: #6c63ff;
+    .section-note {
+      color: var(--muted);
+      max-width: 350px;
+      line-height: 1.7;
+      font-size: 14px;
     }
 
-    /* About */
-    .about {
-      text-align: center;
-      max-width: 850px;
-      margin: auto;
-      font-size: 18px;
-      color: #555;
+    /* ABOUT */
+    .about-card {
+      padding: 50px;
+      border-radius: 32px;
+      background: rgba(255,255,255,.40);
+      border: 1px solid rgba(255,255,255,.65);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 55px rgba(70,66,96,.07);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 50px;
+      align-items: center;
     }
 
-    /* Skills */
-    .skills {
+    .about-card p {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #55515e;
+    }
+
+    .about-side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .small-card {
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.46);
+      border: 1px solid rgba(255,255,255,.60);
+    }
+
+    .small-card span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .small-card strong {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    /* SKILLS */
+    .skills-wrap {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 12px;
     }
 
     .skill {
-      background: white;
-      padding: 12px 22px;
-      border-radius: 25px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      font-weight: bold;
+      padding: 13px 20px;
+      border-radius: 40px;
+      background: rgba(255,255,255,.46);
+      border: 1px solid rgba(255,255,255,.70);
+      backdrop-filter: blur(12px);
+      font-size: 14px;
+      transition: .3s;
     }
 
-    /* Projects */
-    .projects {
+    .skill:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,.68);
+    }
+
+    /* PROJECTS */
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
     }
 
-    .project-card {
-      background: white;
-      padding: 28px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      transition: 0.3s;
+    .project {
+      min-height: 330px;
+      padding: 32px;
+      border-radius: 30px;
+      background:
+        linear-gradient(145deg,
+        rgba(255,255,255,.58),
+        rgba(255,255,255,.25));
+      border: 1px solid rgba(255,255,255,.70);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 20px 45px rgba(81,77,107,.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: .35s ease;
     }
 
-    .project-card:hover {
+    .project:hover {
       transform: translateY(-7px);
+      box-shadow: 0 28px 55px rgba(81,77,107,.11);
     }
 
-    .project-card h3 {
-      color: #6c63ff;
-      margin-bottom: 12px;
+    .project-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--lavender-dark);
     }
 
-    .project-card p {
-      color: #666;
-      margin-bottom: 20px;
+    .project h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 32px;
+      margin: 20px 0 12px;
+      letter-spacing: -1.5px;
     }
 
-    .project-card a {
-      color: #6c63ff;
+    .project p {
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    .project a {
+      margin-top: 30px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 14px;
     }
 
-    /* Contact */
-    .contact {
+    .project.large {
+      grid-column: span 2;
+      min-height: 380px;
+      background:
+        radial-gradient(circle at 85% 20%,
+        rgba(211,207,235,.6),
+        transparent 30%),
+        radial-gradient(circle at 10% 100%,
+        rgba(234,220,220,.55),
+        transparent 35%),
+        rgba(255,255,255,.42);
+    }
+
+    /* CONTACT */
+    .contact-box {
+      padding: 60px 40px;
+      border-radius: 34px;
+      background: var(--text);
+      color: white;
       text-align: center;
-      background: #1e1e2f;
-      color: white;
+      box-shadow: 0 25px 65px rgba(40,38,52,.18);
     }
 
-    .contact p {
-      color: #ccc;
-      margin-bottom: 25px;
+    .contact-box h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(42px, 6vw, 72px);
+      letter-spacing: -3px;
+      margin-bottom: 18px;
     }
 
-    .contact a {
-      color: white;
+    .contact-box p {
+      color: rgba(255,255,255,.68);
+      margin-bottom: 28px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      padding: 12px 21px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: 14px;
+      transition: .3s;
+    }
+
+    .contact-links a:hover {
+      background: rgba(255,255,255,.17);
     }
 
     footer {
-      text-align: center;
-      background: #151521;
-      color: #aaa;
-      padding: 18px;
+      width: min(88%, 1180px);
+      margin: auto;
+      padding: 35px 0 45px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
     }
 
-    @media (max-width: 700px) {
-      .hero h1 {
-        font-size: 40px;
+    @media (max-width: 850px) {
+      nav .links {
+        display: none;
       }
 
-      nav div {
-        display: none;
+      .portfolio-word {
+        letter-spacing: -4px;
+      }
+
+      .about-card {
+        grid-template-columns: 1fr;
+        padding: 32px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project.large {
+        grid-column: span 1;
+      }
+
+      .section-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .about-side {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .portfolio-word {
+        font-size: 65px;
       }
     }
   </style>
@@ -223,11 +500,10 @@
 
 <body>
 
-  <!-- Navigation -->
   <nav>
-    <h2>JD.</h2>
+    <div class="logo">Jood<span>.</span></div>
 
-    <div>
+    <div class="links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
@@ -236,173 +512,245 @@
   </nav>
 
 
-  <!-- Hero -->
-  <div class="hero">
+  <header class="hero">
 
-    <div>
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
 
-      <p>Hello, I'm</p>
+    <div class="hero-content">
 
-      <h1>Jood <span>Deban</span></h1>
+      <div class="mini-label">
+        Computer Science · Portfolio 2026
+      </div>
 
-      <h2>Computer Science Student</h2>
+      <div class="portfolio-word">
+        portfolio
+      </div>
 
-      <p>
-        Passionate about software development, technology,
-        and creating practical digital solutions.
+      <div class="hero-name">
+        Jood <span>Deban</span>
+      </div>
+
+      <p class="hero-description">
+        Computer Science student interested in software development,
+        digital experiences, and building practical technology solutions.
       </p>
 
-      <div class="buttons">
-
-        <a class="btn primary" href="#projects">
-          View My Projects
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          Explore my work
         </a>
 
-        <a class="btn secondary"
-           href="https://github.com/jooddhaiban-glitch"
-           target="_blank">
+        <a href="https://github.com/jooddhaiban-glitch"
+           target="_blank"
+           class="btn btn-secondary">
           GitHub
         </a>
-
       </div>
 
     </div>
+  </header>
 
-  </div>
 
-
-  <!-- About -->
   <section id="about">
 
-    <h2 class="section-title">
-      About <span>Me</span>
-    </h2>
+    <div class="section-top">
+      <div>
+        <div class="section-number">01 / ABOUT</div>
+        <h2 class="section-title">A little about me.</h2>
+      </div>
 
-    <div class="about">
+      <p class="section-note">
+        A mix of software, creativity and practical problem solving.
+      </p>
+    </div>
+
+
+    <div class="about-card">
 
       <p>
-        I am a Computer Science student at the University of Jeddah
-        with an interest in software development and technology.
-        I enjoy developing projects, learning new technologies,
-        and applying my technical skills to real-world challenges.
+        I'm a Computer Science student at the University of Jeddah
+        with an interest in software development and modern digital
+        experiences. I enjoy turning ideas into practical projects,
+        learning new technologies, and continuously improving the way
+        I design and build solutions.
       </p>
+
+      <div class="about-side">
+
+        <div class="small-card">
+          <span>Field</span>
+          <strong>Computer Science</strong>
+        </div>
+
+        <div class="small-card">
+          <span>Focus</span>
+          <strong>Software</strong>
+        </div>
+
+        <div class="small-card">
+          <span>Based in</span>
+          <strong>Jeddah</strong>
+        </div>
+
+        <div class="small-card">
+          <span>Currently</span>
+          <strong>Student</strong>
+        </div>
+
+      </div>
 
     </div>
 
   </section>
 
 
-  <!-- Skills -->
   <section id="skills">
 
-    <h2 class="section-title">
-      My <span>Skills</span>
-    </h2>
+    <div class="section-top">
 
-    <div class="skills">
+      <div>
+        <div class="section-number">02 / SKILLS</div>
+        <h2 class="section-title">Things I work with.</h2>
+      </div>
 
+      <p class="section-note">
+        Technologies and tools I've used through university projects and training.
+      </p>
+
+    </div>
+
+    <div class="skills-wrap">
       <div class="skill">Python</div>
       <div class="skill">Java</div>
       <div class="skill">HTML</div>
       <div class="skill">CSS</div>
-      <div class="skill">GitHub</div>
       <div class="skill">SQL</div>
+      <div class="skill">Git & GitHub</div>
       <div class="skill">Linux</div>
       <div class="skill">UML</div>
-
+      <div class="skill">Software Development</div>
+      <div class="skill">UI / UX</div>
     </div>
 
   </section>
 
 
-  <!-- Projects -->
   <section id="projects">
 
-    <h2 class="section-title">
-      My <span>Projects</span>
-    </h2>
+    <div class="section-top">
 
-    <div class="projects">
+      <div>
+        <div class="section-number">03 / SELECTED WORK</div>
+        <h2 class="section-title">Projects I've built.</h2>
+      </div>
+
+      <p class="section-note">
+        A selection of training and university projects.
+      </p>
+
+    </div>
 
 
-      <!-- Project 1 -->
-      <div class="project-card">
+    <div class="projects-grid">
 
-        <h3>NCM Reports Website</h3>
+      <article class="project large">
 
-        <p>
-          A web-based interface developed during my training
-          at the National Center for Meteorology to organize
-          and display reports in a clear and user-friendly format.
-        </p>
+        <div>
+          <div class="project-label">
+            Training Project · 2026
+          </div>
+
+          <h3>NCM Reports Website</h3>
+
+          <p>
+            A web-based interface created during my training at the
+            National Center for Meteorology to organize and display
+            reports in a clear and user-friendly format.
+          </p>
+        </div>
 
         <a href="https://github.com/jooddhaiban-glitch/mcc-reports-jood"
            target="_blank">
-          View Project →
+          View on GitHub ↗
         </a>
 
-      </div>
+      </article>
 
 
-      <!-- Project 2 -->
-      <div class="project-card">
+      <article class="project">
 
-        <h3>FamilyPay</h3>
+        <div>
+          <div class="project-label">
+            University Project
+          </div>
 
-        <p>
-          A university software project designed to provide
-          a simple digital solution for family payment management.
-        </p>
+          <h3>FamilyPay</h3>
 
-        <a href="#" target="_blank">
-          Project Details →
+          <p>
+            A software project focused on simplifying family payment
+            management through a practical digital experience.
+          </p>
+        </div>
+
+        <a href="#">
+          Project details →
         </a>
 
-      </div>
+      </article>
 
 
-      <!-- Project 3 -->
-      <div class="project-card">
+      <article class="project">
 
-        <h3>Smart Lost</h3>
+        <div>
+          <div class="project-label">
+            University Project
+          </div>
 
-        <p>
-          A university project focused on creating a smarter
-          solution for reporting and finding lost items.
-        </p>
+          <h3>Smart Lost</h3>
 
-        <a href="#" target="_blank">
-          Project Details →
+          <p>
+            A smart solution designed to improve the process of
+            reporting, managing and finding lost items.
+          </p>
+        </div>
+
+        <a href="#">
+          Project details →
         </a>
 
-      </div>
-
+      </article>
 
     </div>
 
   </section>
 
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
+  <section id="contact">
 
-    <h2 class="section-title">
-      Contact <span>Me</span>
-    </h2>
+    <div class="contact-box">
 
-    <p>
-      Interested in connecting or viewing more of my work?
-    </p>
+      <div class="section-number" style="color:#c9c5e8;">
+        04 / CONTACT
+      </div>
 
-    <div class="buttons">
+      <h2>Let's connect.</h2>
 
-      <a class="btn primary"
-         href="https://github.com/jooddhaiban-glitch"
-         target="_blank">
-         GitHub
-      </a>
+      <p>
+        Find more of my work and projects through my profiles.
+      </p>
 
-      <!-- نضيف رابط LinkedIn هنا لاحقاً -->
+      <div class="contact-links">
+
+        <a href="https://github.com/jooddhaiban-glitch"
+           target="_blank">
+          GitHub ↗
+        </a>
+
+        <!-- نضيف LinkedIn هنا بعدين -->
+
+      </div>
 
     </div>
 
@@ -410,7 +758,8 @@
 
 
   <footer>
-    © 2026 Jood Deban — Portfolio
+    <span>© 2026 Jood Deban</span>
+    <span>Designed & built by Jood</span>
   </footer>
 
 </body>
